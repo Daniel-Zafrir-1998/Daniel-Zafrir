@@ -7,6 +7,9 @@ public class Solution
         {
             if (0 == flowerbed[i])
             {
+// The conversion part is unclear, why do u need to use Convert.Int32 here?
+// The code is not that readable and hard to understand.
+
                 flowerbed[i] = Convert
                     .ToInt32(
                     (i == flowerbed.Length - 1 ||
