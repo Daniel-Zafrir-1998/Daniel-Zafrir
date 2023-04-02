@@ -7,6 +7,7 @@ public class Solution
         {
             if (0 == flowerbed[i])
             {
+// Yair : the convert part is unradable , what did you try to do here? What's the Convert.ToInt32 for?
                 flowerbed[i] = Convert
                     .ToInt32(
                     (i == flowerbed.Length - 1 ||
