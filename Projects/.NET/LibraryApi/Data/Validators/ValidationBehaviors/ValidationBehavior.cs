@@ -19,17 +19,18 @@ where TRequest : class, ICommand<TResponse>
             return await next();
         }
 
-        var validationResults = _validators.Validate<IValidator, TRequest, TResponse>(_context);
-        var errorsResults = FindAndGroupErrors(validationResults);
+        IEnumerable<ValidationResult> validationResults = _validators.Validate<IValidator, TRequest, TResponse>(_context);
+        IEnumerable<ValidationFailure> errorsResults = FindAndGroupErrors(validationResults);
+
         AssertErrors(errorsResults);
 
         return await next();
     }
-    private IEnumerable<ValidationFailure>? FindAndGroupErrors(IEnumerable<ValidationResult>? validationResults)
+    private IEnumerable<ValidationFailure> FindAndGroupErrors(IEnumerable<ValidationResult> validationResults)
     {
-        return validationResults?.SelectMany(x => x.Errors);
+        return validationResults.SelectMany(x => x.Errors);
     }
-    private void AssertErrors(IEnumerable<ValidationFailure>? errorsResults)
+    private void AssertErrors(IEnumerable<ValidationFailure> errorsResults)
     {
         if (errorsResults.Any())
         {

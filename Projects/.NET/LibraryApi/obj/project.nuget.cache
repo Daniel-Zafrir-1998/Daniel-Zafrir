@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "zhspsUN7NdVfd5lteCwpu12ip4N2iXaK1B70rJ7PG1br5NcTDtD5vexg+u5ThbgQMjMalQZwfb3TKmFtt/r2YA==",
+  "dgSpecHash": "7+VO8rCALN9XxQ7YSFJGIUpYm5ehwrh6XoRGiYFycYdIhfyOOhDCyxde2Ze44YrQMQXOCfjtO1WtJ97bt12IGg==",
   "success": true,
   "projectFilePath": "C:\\Daniel-Zafrir\\Projects\\.NET\\LibraryApi\\LibraryApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CAL\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\CAL\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\CAL\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512",
+    "C:\\Users\\CAL\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.2\\fluentvalidation.dependencyinjectionextensions.11.5.2.nupkg.sha512",
     "C:\\Users\\CAL\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
     "C:\\Users\\CAL\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\CAL\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.1.0\\mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",

@@ -44,6 +44,23 @@
           }
         }
       },
+      "FluentValidation.DependencyInjectionExtensions/11.5.2": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "11.5.2",
+          "Microsoft.Extensions.Dependencyinjection.Abstractions": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MediatR/11.0.0": {
         "type": "package",
         "dependencies": {
@@ -2437,6 +2454,23 @@
         "lib/netstandard2.0/FluentValidation.xml",
         "lib/netstandard2.1/FluentValidation.dll",
         "lib/netstandard2.1/FluentValidation.xml"
+      ]
+    },
+    "FluentValidation.DependencyInjectionExtensions/11.5.2": {
+      "sha512": "ycibtdWdluIx0aTgQvO7Kjd5GjNRpD92z4/hEJc8u1luZ5ff1k0JpwPGmL+YFbPVYFk+A6gYIrVI4QdZfSJJdQ==",
+      "type": "package",
+      "path": "fluentvalidation.dependencyinjectionextensions/11.5.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.dependencyinjectionextensions.11.5.2.nupkg.sha512",
+        "fluentvalidation.dependencyinjectionextensions.nuspec",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.xml",
+        "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll",
+        "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.xml"
       ]
     },
     "MediatR/11.0.0": {
@@ -7369,7 +7403,7 @@
     "net7.0": [
       "AutoMapper >= 12.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
-      "FluentValidation >= 11.5.2",
+      "FluentValidation.DependencyInjectionExtensions >= 11.5.2",
       "MediatR >= 11.0.0",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 11.1.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.5",
@@ -7425,7 +7459,7 @@
             "target": "Package",
             "version": "[12.0.1, )"
           },
-          "FluentValidation": {
+          "FluentValidation.DependencyInjectionExtensions": {
             "target": "Package",
             "version": "[11.5.2, )"
           },

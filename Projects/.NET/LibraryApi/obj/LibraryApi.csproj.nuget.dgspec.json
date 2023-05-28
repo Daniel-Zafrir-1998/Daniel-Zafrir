@@ -48,7 +48,7 @@
               "target": "Package",
               "version": "[12.0.1, )"
             },
-            "FluentValidation": {
+            "FluentValidation.DependencyInjectionExtensions": {
               "target": "Package",
               "version": "[11.5.2, )"
             },

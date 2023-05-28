@@ -12,9 +12,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<LibraryContext>(options => options.UseSqlServer(""));
 builder.Services.AddMediatR(typeof(ProjectAssemblyEntryPoint).Assembly);
+builder.Services.AddValidatorsFromAssembly(typeof(ProjectAssemblyEntryPoint).Assembly);
 builder.Services.AddLogging();
 builder.Services.AddAutoMapper(cfg => cfg.AddProfile<AutoMapperProfile>());
-
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(IValidationBehavior<,>));
 builder.Services.AddTransient(typeof(IValidationContext), typeof(ValidationContext<>));
 

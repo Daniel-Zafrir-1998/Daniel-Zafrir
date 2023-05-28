@@ -1,3 +1,1 @@
-using MediatR;
-
-public record GetAllBooksQuery() : IQuery<List<Book>>;
+public record GetAllBooksQuery() : IQuery<List<BookResponseModel>>;

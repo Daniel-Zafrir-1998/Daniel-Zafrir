@@ -1,15 +1,22 @@
-using System.Linq;
 using MediatR;
-
-public class GetAllBooksHandler : IRequestHandler<GetAllBooksQuery, List<Book>>
+using AutoMapper;
+public class GetAllBooksHandler : IRequestHandler<GetAllBooksQuery, List<BookResponseModel>>
 {
     private readonly LibraryContext _context;
-    public GetAllBooksHandler(LibraryContext context)
+    private readonly IMapper _mapper;
+    public GetAllBooksHandler(LibraryContext context, IMapper mapper)
     {
         _context = context;
+        _mapper = mapper;
     }
-    public Task<List<Book>> Handle(GetAllBooksQuery request, CancellationToken cancellationToken)
+    public async Task<List<BookResponseModel>> Handle(GetAllBooksQuery request, CancellationToken cancellationToken)
     {
-        return Task.FromResult(_context.Books.ToList());
+        var response = _context.Books
+                               .Select(x => _mapper.Map<Book, BookResponseModel>(x))
+                               .ToList();
+
+        await Task.CompletedTask;
+
+        return response;
     }
 }

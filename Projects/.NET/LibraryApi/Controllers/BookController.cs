@@ -24,7 +24,7 @@ public class BookController : ControllerBase
         return Ok();
     }
     [HttpPost()]
-    public async Task<bool> AddBook([FromBody] BookRequestModel requestModel)
+    public async Task<BookRequestModel> AddBook([FromBody] BookRequestModel requestModel)
     {
         return Ok();
     }
