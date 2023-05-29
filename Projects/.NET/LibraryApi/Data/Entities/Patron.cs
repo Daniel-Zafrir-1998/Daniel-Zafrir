@@ -8,6 +8,6 @@ public class Patron
     }
     public int ID { get; set; }
     public string PhoneNumber { get; set; }
-    public virtual ICollection<Book> Books { get; set; }
+    public ICollection<Book> Books { get; set; }
 
 }
