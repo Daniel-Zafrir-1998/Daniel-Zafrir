@@ -1,32 +1,43 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("[controller]")]
+[Route("[controller]/api")]
 public class GenreController : ControllerBase
 {
     private readonly ILogger<GenreController> _logger;
-    public GenreController(ILogger<GenreController> logger)
+    private readonly IMediator _mediator;
+    public GenreController(ILogger<GenreController> logger, IMediator mediator)
     {
         _logger = logger;
+        _mediator = mediator;
     }
     [HttpGet()]
     public async Task<List<GenreResponseModel>> GetAllGenre()
     {
-        return Ok();
+        var result = await _mediator.Send(new GetAllGenresQuery());
+
+        return result;
     }
-    [HttpGet("{GenreID}")]
-    public async Task<GenreResponseModel> GetGenre([FromRoute] int GenreID)
+    [HttpGet("{genreID}")]
+    public async Task<GenreResponseModel> GetGenre([FromRoute] int genreID)
     {
-        return Ok();
+        var result = await _mediator.Send(new GetGenreQuery(genreID));
+
+        return result;
     }
     [HttpPost()]
-    public async Task<bool> AddGenre([FromBody] GenreRequestModel requestModel)
+    public async Task<GenreRequestModel> AddGenre([FromBody] GenreRequestModel requestModel)
     {
-        return Ok();
+        var result = await _mediator.Send(new AddGenreCommand(requestModel));
+
+        return result;
     }
     [HttpPut()]
-    public async Task<bool> UpdateGenre([FromBody] GenreRequestModel requestModel)
+    public async Task<GenreRequestModel> UpdateGenre([FromBody] GenreRequestModel requestModel)
     {
-        return Ok();
+        var result = await _mediator.Send(new UpdateGenreCommand(requestModel));
+
+        return result;
     }
 }

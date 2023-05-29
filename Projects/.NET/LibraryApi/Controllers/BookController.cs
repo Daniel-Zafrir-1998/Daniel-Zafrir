@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using MediatR;
 
 [ApiController]
-[Route("[controller]")]
+[Route("[controller]/api")]
 public class BookController : ControllerBase
 {
     private readonly ILogger<BookController> _logger;
@@ -15,22 +15,32 @@ public class BookController : ControllerBase
     [HttpGet()]
     public async Task<List<BookResponseModel>> GetAllBook()
     {
-        var x = await _mediator.Send(new GetAllBooksQuery());
-        return null;
+        var result = await _mediator.Send(new GetAllBooksQuery());
+
+        return result;
     }
+
     [HttpGet("{bookID}")]
     public async Task<BookResponseModel> GetBook([FromRoute] int bookID)
     {
-        return Ok();
+        var result = await _mediator.Send(new GetBookQuery(bookID));
+
+        return result;
     }
+
     [HttpPost()]
     public async Task<BookRequestModel> AddBook([FromBody] BookRequestModel requestModel)
     {
-        return Ok();
+        var result = await _mediator.Send(new AddBookCommand(requestModel));
+
+        return result;
     }
+
     [HttpPut()]
-    public async Task<bool> UpdateBook([FromBody] BookRequestModel requestModel)
+    public async Task<BookRequestModel> UpdateBook([FromBody] BookRequestModel requestModel)
     {
-        return Ok();
+        var result = await _mediator.Send(new UpdateBookCommand(requestModel));
+
+        return result;
     }
 }

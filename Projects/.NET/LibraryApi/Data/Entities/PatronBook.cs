@@ -5,6 +5,6 @@ public class PatronBook
     public int PatronID { get; set; }
     public int BookID { get; set; }
 
-    public virtual Patron Patron { get; set; }
-    public virtual Book Book { get; set; }
+    public Patron Patron { get; set; }
+    public Book Book { get; set; }
 }

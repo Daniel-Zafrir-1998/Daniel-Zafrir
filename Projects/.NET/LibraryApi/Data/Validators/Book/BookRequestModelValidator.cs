@@ -1,6 +1,6 @@
 using FluentValidation;
 
-public sealed class BookRequestModelValidator : AbstractValidator<BookRequestModel>
+public abstract class BookRequestModelValidator : AbstractValidator<BookRequestModel>
 {
     public BookRequestModelValidator()
     {

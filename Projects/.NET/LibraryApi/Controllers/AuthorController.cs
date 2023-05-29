@@ -1,32 +1,47 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("[controller]")]
+[Route("[controller]/api")]
 public class AuthorController : ControllerBase
 {
     private readonly ILogger<AuthorController> _logger;
-    public AuthorController(ILogger<AuthorController> logger)
+    private readonly IMediator _mediator;
+    public AuthorController(ILogger<AuthorController> logger, IMediator mediator)
     {
         _logger = logger;
+        _mediator = mediator;
     }
+
     [HttpGet()]
-    public async Task<List<AuthorResponseModel>> GetAllAuthor()
+    public async Task<List<AuthorResponseModel>> GetAllAuthors()
     {
-        return Ok();
+        var result = await _mediator.Send(new GetAllAuthorsQuery());
+
+        return result;
     }
-    [HttpGet("{AuthorID}")]
-    public async Task<AuthorResponseModel> GetAuthor([FromRoute] int AuthorID)
+
+    [HttpGet("{authorID}")]
+    public async Task<AuthorResponseModel> GetAuthor([FromRoute] int authorID)
     {
-        return Ok();
+        var result = await _mediator.Send(new GetAuthorQuery(authorID));
+
+        return result;
     }
+
     [HttpPost()]
-    public async Task<bool> AddAuthor([FromBody] AuthorRequestModel requestModel)
+    public async Task<AuthorRequestModel> AddAuthor([FromBody] AuthorRequestModel requestModel)
     {
-        return Ok();
+        var result = await _mediator.Send(new AddAuthorCommand(requestModel));
+
+        return result;
     }
+
     [HttpPut()]
-    public async Task<bool> UpdateAuthor([FromBody] AuthorRequestModel requestModel)
+    public async Task<AuthorRequestModel> UpdateAuthor([FromBody] AuthorRequestModel requestModel)
     {
-        return Ok();
+        var result = await _mediator.Send(new UpdateAuthorCommand(requestModel));
+
+        return result;
     }
 }
