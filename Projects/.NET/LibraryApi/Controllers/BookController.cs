@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using MediatR;
 
 [ApiController]
-[Route("[controller]/api")]
+[Route("api/[controller]")]
 public class BookController : ControllerBase
 {
     private readonly ILogger<BookController> _logger;

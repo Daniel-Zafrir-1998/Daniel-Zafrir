@@ -15,8 +15,7 @@ builder.Services.AddMediatR(typeof(ProjectAssemblyEntryPoint).Assembly);
 builder.Services.AddValidatorsFromAssembly(typeof(ProjectAssemblyEntryPoint).Assembly);
 builder.Services.AddLogging();
 builder.Services.AddAutoMapper(cfg => cfg.AddProfile<AutoMapperProfile>());
-builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(IValidationBehavior<,>));
-builder.Services.AddTransient(typeof(IValidationContext), typeof(ValidationContext<>));
+builder.Services.AddTransient(typeof(IValidationBehavior<,>), typeof(ValidationBehavior<,>));
 
 var app = builder.Build();
 

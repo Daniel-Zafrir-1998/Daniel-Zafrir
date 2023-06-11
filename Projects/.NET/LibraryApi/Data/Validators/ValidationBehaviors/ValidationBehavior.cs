@@ -6,11 +6,9 @@ public sealed class ValidationBehavior<TRequest, TResponse> : IValidationBehavio
 where TRequest : class, ICommand<TResponse>
 {
     private readonly IEnumerable<IValidator> _validators;
-    private readonly ValidationContext<TRequest> _context;
-    public ValidationBehavior(IEnumerable<IValidator> validators, ValidationContext<TRequest> context)
+    public ValidationBehavior(IEnumerable<IValidator> validators)
     {
         _validators = validators;
-        _context = context;
     }
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
@@ -19,7 +17,8 @@ where TRequest : class, ICommand<TResponse>
             return await next();
         }
 
-        IEnumerable<ValidationResult> validationResults = _validators.Validate<IValidator, TRequest, TResponse>(_context);
+        ValidationContext<TRequest> context = new(request);
+        IEnumerable<ValidationResult> validationResults = _validators.Validate<IValidator, TRequest, TResponse>(context);
         IEnumerable<ValidationFailure> errorsResults = FindAndGroupErrors(validationResults);
 
         AssertErrors(errorsResults);

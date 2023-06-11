@@ -2,7 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("[controller]/api")]
+[Route("api/[controller]")]
 public class PatronController : ControllerBase
 {
     private readonly ILogger<PatronController> _logger;
